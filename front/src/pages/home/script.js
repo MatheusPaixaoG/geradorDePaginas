@@ -24,7 +24,7 @@ class ChamarServidorService {
           console.log(data)
           console.log("data.resultado")
           console.log(data.resultado)
-          const resultadoJson = data.resultado // REMOVER O STRINGIFY QUANDO FOR USAR A API
+          const resultadoJson = JSON.stringify(data.resultado) // REMOVER O STRINGIFY QUANDO FOR USAR A API
           localStorage.setItem("ResultadoGpt", resultadoJson)
           resolve(resultadoJson)
         })

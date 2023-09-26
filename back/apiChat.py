@@ -3,6 +3,7 @@ import json
 from convertJson import convert_to_json
 
 def apiChatGpt(textoEntrada, apiKey):
+    print("dentro da api")
     # headers = {"Authorization": f"Bearer {apiKey}", "Content-Type":"application/json"}
     # link = "https://api.openai.com/v1/chat/completions"
     # id_modelo = "gpt-4"
