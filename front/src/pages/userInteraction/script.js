@@ -82,7 +82,7 @@ class ChamarServidorService {
       })
       .then(response => response.json())
       .then(data => {
-          const resultadoJson = data.resultado // COLOCAR JSON.PARSE QUANDO FOR USAR A API
+          const resultadoJson = JSON.parse(data.resultado) // COLOCAR JSON.PARSE QUANDO FOR USAR A API
           const objetoArmazenado = JSON.parse(localStorage.getItem("ResultadoGpt")) || [];
           objetoArmazenado[campoLocalStorage] = resultadoJson["result"];
           localStorage.setItem('ResultadoGpt', JSON.stringify(objetoArmazenado));

@@ -99,29 +99,34 @@ def handle_request():
         apiKey = data.get('apiKey')
         print("Função: " + funcao)
         
-        if funcao == "apiChatGpt":
-            print("Chamou a api do gpt")
-            resultado = apiChatGpt(parametro, apiKey)
-            print(resultado)
-        elif funcao == "gerarFrase":
-            resultado = gerarFrase(parametro, apiKey)
-        elif funcao == "gerarTexto":
-            resultado = gerarTexto(parametro, apiKey)
-        elif funcao == "gerarSlogan":
-            resultado = gerarSlogan(parametro, apiKey)
-        elif funcao == "gerarDescricao":
-            resultado = gerarDescricao(parametro, apiKey)
-        elif funcao == "makeZip":
-            resultado = makeZip(parametro)
-        elif funcao == "chngHtml":
-            resultado = chngHtml(parametro)
-        else:
-            resultado = "Função desconhecida"
-        
-        response = app.response_class(
-            response=json.dumps({'resultado': resultado}),
-            status=200,
-            mimetype='application/json'
-        )
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        return response
+        try:
+            if funcao == "apiChatGpt":
+                print("Chamou a api do gpt")
+                resultado = apiChatGpt(parametro, apiKey)
+                print(resultado)
+            elif funcao == "gerarFrase":
+                resultado = gerarFrase(parametro, apiKey)
+            elif funcao == "gerarTexto":
+                resultado = gerarTexto(parametro, apiKey)
+            elif funcao == "gerarSlogan":
+                resultado = gerarSlogan(parametro, apiKey)
+            elif funcao == "gerarDescricao":
+                resultado = gerarDescricao(parametro, apiKey)
+            elif funcao == "makeZip":
+                resultado = makeZip(parametro)
+            elif funcao == "chngHtml":
+                resultado = chngHtml(parametro)
+            else:
+                resultado = "Função desconhecida"
+            
+            response = app.response_class(
+                response=json.dumps({'resultado': resultado}),
+                status=200,
+                mimetype='application/json'
+            )
+            response.headers.add('Access-Control-Allow-Origin', '*')
+            return response
+        except Exception as e:
+            print("Erro no servidor")
+            print(e)
+            return jsonify({"error": str(e)}), 500
