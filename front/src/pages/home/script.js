@@ -8,7 +8,6 @@ class ChamarServidorService {
     const parametro = "Nome: " + nome + "\n" + "Produto: " + what + "\n" + "Descrição: " + descricao
     const urlServidor = this.urlServidor
     const apiKey = localStorage.getItem('openAIKey');
-    console.log("ENVIAR NOME E DESCRIÇÃO")
 
     return new Promise((resolve, reject) => {
       fetch(urlServidor, {
@@ -20,10 +19,6 @@ class ChamarServidorService {
       })
       .then(response => response.json())
       .then(data => {
-          console.log("data")
-          console.log(data)
-          console.log("data.resultado")
-          console.log(data.resultado)
           const resultadoJson = data.resultado // REMOVER O STRINGIFY QUANDO FOR USAR A API
           localStorage.setItem("ResultadoGpt", resultadoJson)
           resolve(resultadoJson)

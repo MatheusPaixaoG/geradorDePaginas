@@ -97,13 +97,10 @@ def handle_request():
         funcao = data.get('funcao')
         parametro = data.get('parametro')
         apiKey = data.get('apiKey')
-        print("Função: " + funcao)
         
         try:
             if funcao == "apiChatGpt":
-                print("Chamou a api do gpt")
                 resultado = apiChatGpt(parametro, apiKey)
-                print(resultado)
             elif funcao == "gerarFrase":
                 resultado = gerarFrase(parametro, apiKey)
             elif funcao == "gerarTexto":
