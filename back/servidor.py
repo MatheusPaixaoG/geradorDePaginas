@@ -19,7 +19,7 @@ CORS(app, resources={
 })
 UPLOAD_FOLDER = 'imagensBackground/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-urlServidor = 'https://geradordepaginas.onrender.com'
+urlServidor = 'https://geradordepaginas1.onrender.com/'
 
 def funcao_1(parametro):
     resultado = f"Olá da Função 1, {parametro}!"
@@ -97,6 +97,7 @@ def handle_request():
         funcao = data.get('funcao')
         parametro = data.get('parametro')
         apiKey = data.get('apiKey')
+        print("Função: " + funcao)
         
         if funcao == "apiChatGpt":
             resultado = apiChatGpt(parametro, apiKey)

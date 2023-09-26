@@ -66,7 +66,7 @@ class CriarElementos {
 // CLASSE PARA SE COMUNICAR COM O SERVIDOR
 class ChamarServidorService {
   constructor () {
-    this.urlServidor = 'https://geradordepaginas.onrender.com'
+    this.urlServidor = 'https://geradordepaginas1.onrender.com/'
   }
 
   requisitarGPTBase(urlServidor, funcaoParaChamar, parametro, campoLocalStorage) {
